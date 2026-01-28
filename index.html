@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iDistribute | Hardware Solutions Apple</title>
+    <title>iDistribute | Apple Premium Reseller & Distribute</title>
     
-    <!-- Silenciamos advertencias de producción de la CDN para evitar clutter en consola -->
+    <!-- Script para silenciar advertencias de la CDN de Tailwind en desarrollo -->
     <script>
-        const originalWarn = console.warn;
+        const warn = console.warn;
         console.warn = (...args) => {
-            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
-            originalWarn(...args);
+            if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+            warn(...args);
         };
     </script>
 
-    <!-- Tailwind Play CDN - Cargado sin atributos de seguridad que causan CORS en algunos proxies -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
-        // Inyectamos la configuración de tailwind.config.js dinámicamente
         tailwind.config = {
             theme: {
                 extend: {

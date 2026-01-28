@@ -40,7 +40,7 @@ const App: React.FC = () => {
   const categories: (Category | 'Todos')[] = ['Todos', 'Mac', 'iPhone', 'iPad', 'Watch', 'AirPods', 'Accesorios'];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-apple-light selection:bg-apple-blue/10">
       <Navbar 
         onCartClick={() => setIsCartOpen(true)} 
         cartCount={cart.reduce((acc, i) => acc + i.quantity, 0)} 
@@ -49,22 +49,22 @@ const App: React.FC = () => {
       <main>
         <Hero />
 
-        <section className="max-w-7xl mx-auto px-4 py-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">Busca el tuyo.</h2>
-              <p className="text-gray-500">Explora nuestra gama de productos Apple certificados.</p>
+        <section className="max-w-7xl mx-auto px-6 py-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="space-y-2">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Busca el tuyo.</h2>
+              <p className="text-apple-gray text-lg font-medium">Explora nuestra gama de productos Apple certificados.</p>
             </div>
             
-            <div className="flex overflow-x-auto pb-2 md:pb-0 gap-2 no-scrollbar">
+            <div className="flex overflow-x-auto pb-4 md:pb-0 gap-3 no-scrollbar scroll-smooth">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
                     selectedCategory === cat
-                      ? 'bg-gray-900 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? 'bg-apple-black text-white shadow-xl shadow-black/10 scale-105'
+                      : 'bg-white text-apple-gray border border-black/5 hover:border-black/20 hover:text-apple-black'
                   }`}
                 >
                   {cat}
@@ -73,7 +73,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {filteredProducts.map(product => (
               <ProductCard 
                 key={product.id} 
@@ -84,31 +84,38 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section className="bg-gray-100 py-24 px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold">Distribución para empresas.</h2>
-            <p className="text-xl text-gray-500">
+        <section className="bg-white py-32 px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-10">
+            <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">Distribución para empresas.</h2>
+            <p className="text-xl md:text-2xl text-apple-gray font-medium leading-relaxed">
               Ofrecemos soluciones personalizadas para el despliegue de hardware Apple en tu organización. 
               Gestión MDM, soporte técnico especializado y financiación flexible.
             </p>
-            <button className="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-black transition-colors">
-              Hablar con un consultor
-            </button>
+            <div className="pt-6">
+              <button className="btn-apple-primary text-lg">
+                Hablar con un consultor
+              </button>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-white border-t border-gray-200 py-12 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center space-x-2 text-gray-400 font-bold tracking-widest text-lg">
-            <span className="text-black">i</span>DISTRIBUTE
+      <footer className="bg-apple-light border-t border-black/5 py-16 px-6">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center space-x-2 text-apple-black font-extrabold tracking-tighter text-2xl">
+              <span>i</span>DISTRIBUTE
+            </div>
+            <div className="flex space-x-10 text-sm font-semibold text-apple-gray">
+              <a href="#" className="hover:text-apple-black transition-colors">Privacidad</a>
+              <a href="#" className="hover:text-apple-black transition-colors">Condiciones</a>
+              <a href="#" className="hover:text-apple-black transition-colors">Mapa del sitio</a>
+            </div>
           </div>
-          <div className="flex space-x-8 text-sm text-gray-500">
-            <a href="#" className="hover:underline">Privacidad</a>
-            <a href="#" className="hover:underline">Condiciones</a>
-            <a href="#" className="hover:underline">Mapa del sitio</a>
+          <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-apple-gray">
+            <p>© 2024 iDistribute Hardware. Distribuidor Autorizado.</p>
+            <p>Hecho para el ecosistema Apple.</p>
           </div>
-          <p className="text-sm text-gray-400">© 2024 iDistribute Hardware. Todos los derechos reservados.</p>
         </div>
       </footer>
 
