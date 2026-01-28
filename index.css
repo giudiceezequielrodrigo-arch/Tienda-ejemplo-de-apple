@@ -1,0 +1,52 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-apple-light text-apple-black antialiased selection:bg-apple-blue/20;
+  }
+}
+
+@layer components {
+  .nav-blur {
+    @apply backdrop-blur-xl bg-white/75 sticky top-0 z-[60] border-b border-black/5;
+  }
+  
+  .glass-card {
+    @apply bg-white border border-black/[0.03] rounded-apple overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 ease-in-out hover:-translate-y-1;
+  }
+  
+  .btn-apple-primary {
+    @apply bg-apple-blue text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all active:scale-95 shadow-md hover:shadow-blue-500/25;
+  }
+  
+  .btn-apple-secondary {
+    @apply text-apple-blue font-semibold hover:underline flex items-center gap-0.5 group;
+  }
+  
+  .product-image-container {
+    @apply relative aspect-square flex items-center justify-center p-8 bg-[#fbfbfd] overflow-hidden;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Scrollbar macOS Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d1d6;
+  border-radius: 10px;
+  border: 3px solid #f5f5f7;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a6;
+}
