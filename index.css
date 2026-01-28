@@ -23,7 +23,7 @@
   }
   
   .btn-apple-secondary {
-    @apply text-apple-blue font-semibold hover:underline flex items-center gap-0.5 group;
+    @apply text-apple-blue font-semibold hover:underline flex items-center gap-0.5;
   }
   
   .product-image-container {
