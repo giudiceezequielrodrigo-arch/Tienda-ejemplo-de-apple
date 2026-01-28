@@ -4,58 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iDistribute | Apple Hardware Premium</title>
-    <!-- Silenciar avisos de Permissions-Policy del navegador -->
-    <meta http-equiv="Permissions-Policy" content="browsing-topics=()">
+    <title>iDistribute | Distribuidor Oficial Apple Hardware</title>
     
-    <!-- Favicon inline -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231d1d1f'/><text y='70' x='50' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='60' font-weight='bold'>i</text></svg>">
+    <!-- Evitar errores de políticas de navegación en consola -->
+    <meta http-equiv="Permissions-Policy" content="browsing-topics=(), conversion-measurement=(), join-ad-interest-group=(), run-ad-auction=()">
     
-    <!-- Tailwind CSS - Eliminamos crossorigin para evitar bloqueos de política CORS en entornos Vercel/Sandbox -->
+    <!-- Favicon Premium -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231d1d1f'/><path d='M30 70 L50 30 L70 70' stroke='white' stroke-width='8' fill='none' stroke-linejoin='round'/></svg>">
+    
+    <!-- Tailwind CSS - Cargado sin atributos de seguridad restrictivos para evitar bloqueos CORS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            black: '#1d1d1f',
+                            gray: '#86868b',
+                            light: '#f5f5f7',
+                            blue: '#0066cc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style type="text/tailwindcss">
         @layer base {
-          body {
-            @apply bg-[#fbfbfd] text-[#1d1d1f] antialiased;
-            font-family: 'Inter', sans-serif;
-          }
+            body {
+                @apply bg-apple-light text-apple-black antialiased overflow-x-hidden;
+            }
         }
         @layer components {
-          .apple-blur {
-            @apply backdrop-blur-xl bg-white/70;
-          }
+            .apple-blur {
+                @apply backdrop-blur-xl bg-white/80 sticky top-0 z-50 border-b border-black/5;
+            }
+            .glass-card {
+                @apply bg-white border border-black/5 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500;
+            }
+            .btn-primary {
+                @apply bg-apple-blue text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-all active:scale-95;
+            }
+            .btn-secondary {
+                @apply text-apple-blue font-medium hover:underline flex items-center gap-1;
+            }
         }
-        /* Estilos adicionales para asegurar que el diseño no dependa solo del script externo */
+
+        /* Scrollbar estilo macOS */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #fbfbfd;
+            @apply bg-transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d1d1d6;
-            border-radius: 10px;
+            @apply bg-gray-300 border-4 border-solid border-apple-light rounded-full;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a1a1a6;
+            @apply bg-gray-400;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@1.38.0",
-    "react-dom/": "https://esm.sh/react-dom@19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@0.463.0",
-    "react/": "https://esm.sh/react@19.2.4/",
-    "react": "https://esm.sh/react@19.2.4"
-  }
-}
-</script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@1.38.0",
+        "react-dom/": "https://esm.sh/react-dom@19.2.4/",
+        "lucide-react": "https://esm.sh/lucide-react@0.463.0",
+        "react/": "https://esm.sh/react@19.2.4/",
+        "react": "https://esm.sh/react@19.2.4"
+      }
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>
