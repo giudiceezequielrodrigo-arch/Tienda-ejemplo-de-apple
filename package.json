@@ -1,5 +1,5 @@
 {
-  "name": "copy-of-idistribute---apple-hardware-solutions",
+  "name": "idistribute---apple-hardware-solutions",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google/genai": "^1.38.0",
-    "react-dom": "^19.2.4",
-    "lucide-react": "^0.563.0",
-    "react": "^19.2.4"
+    "@google/genai": "1.38.0",
+    "react-dom": "19.2.4",
+    "lucide-react": "0.463.0",
+    "react": "19.2.4"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
