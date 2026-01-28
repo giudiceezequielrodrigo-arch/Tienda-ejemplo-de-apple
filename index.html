@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iDistribute | Apple Hardware Premium</title>
+    <!-- Favicon inline para evitar error 404 -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231d1d1f'/><text y='70' x='50' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='60' font-weight='bold'>i</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,6 +18,20 @@
         .apple-blur {
             backdrop-filter: saturate(180%) blur(20px);
             background-color: rgba(255, 255, 255, 0.72);
+        }
+        /* Scrollbar minimalista tipo Apple */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fbfbfd;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d1d6;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a6;
         }
     </style>
 <script type="importmap">
